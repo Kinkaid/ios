@@ -1,0 +1,18 @@
+@charset "utf-8";
+$bgColor:yellow;
+$fs:32px;
+$highlight-color: #F90;
+.box {
+    color:#f00;
+    background:$bgColor;
+    font-size:$fs;
+    p {
+        font-size: 50px;
+        border: 1px solid red;
+        color: $highlight-color;
+        text-align: center;
+        &:hover {
+            color:blue;
+        }
+    }
+}

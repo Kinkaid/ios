@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script> -->
+    <title>SASS</title>
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style rel='stylesheet' type='text/css'>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            display: flex;
+            margin: 100px auto;
+            /* width: 900px; */
+            width: 50%;
+            border: 1px solid #ccc;
+            height: 100px;
+            justify-content: space-between;  /* flex-start | flex-end | center | space-between | space-around */
+            flex-direction: row;  /* row | row-reverse | column | column-reverse   */
+            flex-wrap: nowrap;  /* nowrap | wrap | wrap-reverse */
+            align-items: stretch;   /*  flex-start | flex-end | center | stretch |  baseline*/
+            align-content:flex-start; /* flex-start | flex-end | center | stretch |  space-between | space-around */
+            flex-flow: row nowrap; /* flex-flow:flex-direction flex-wrap */
+        }
+        .item1 {
+            /* width: 450px; */
+            background: green;
+            /* height: 60px; */
+            order: 0;
+            /* flex-grow: 3; */
+            width: 300px;
+            flex-shrink: 0;
+            /* flex-shrink: 1; */
+            flex-basis: auto; /* length */
+            /* flex: 0 1 auto; */
+            align-self: auto; /* auto | flex-start | flex-end | center | stretch | baseline */
+        }
+        .item2 {
+            background: red;
+            /* width: 450px; */
+            /* height: 80px; */
+            flex-grow: 1;
+        }
+        .item3 {
+            /* width: 450px; */
+            background: skyblue;
+            /* height: 30px; */
+            flex-grow: 1;
+        }
+        .car {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            background: red;
+            /* animation: myAni 3s linear; */
+            /* transform: translateX(400px); */
+            /* transition: ; */
+            transition: all 3s ease-in-out;
+        }
+        .line {
+            margin-top: 20px;
+            width: 100%;
+            height: 1px;
+            background: #000;            
+            transition: transform 2s;
+            
+        }
+        body:hover .line {
+            transform: scaleY(0.1);
+        }
+        .car:hover {
+            width: 300px;
+            background: skyblue;
+            /* transform: translateX(100px); */
+            transform:scale(2);
+        }
+        @keyframes myAni {
+            from {
+                transform: translateX(0);
+                background: skyblue;
+            }
+            to {
+                transform: translateX(400px);
+                background: red;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="item1">11111</div>
+        <div class="item2">22222</div>
+        <div class="item3">33333</div>
+    </div>
+    <div class="car">hello</div>
+    <div class="line"></div>
+    <script>
+        let vm = new Vue({
+            el:'#box',
+            data(){
+                return {
+                    msg:'hello',
+                    show:true
+                }
+            },
+            methods:{
+                toggle(){
+                    this.show = !this.show;
+                }
+            },
+            watch:{
+                msg:function(newV,oldV){
+                    console.log(newV,oldV)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
